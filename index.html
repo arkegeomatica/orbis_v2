@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>ORBIS v2 (.2)</title>
+  <title>ORBIS v2 (.2) arkegeomatica</title>
   <link type="text/css" rel="stylesheet" href="orbis.css" />
   <link type="text/css" rel="stylesheet" href="chosen.min.css" />
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -15,17 +15,10 @@
     <div style="width:100%;height:100%;" onclick="closeEssay()">
     </div>
   </div>
-  <div id="topbar"><div id="title">ORBIS 2.0 (beta)</div>
-    <div class="navtab" data="home">Introduction</div>
-    <div class="navtab" data="understand">Understanding</div>
-    <div class="navtab" data="build">Building</div>
-    <div class="navtab" data="tutorial">Using</div>
-    <div class="navtab" data="gallery">Map Gallery</div>
-    <div class="navtab" data="scholarship">Research</div>
-    <div class="navtab" data="media">Media</div>
-    <div class="navtab" data="credits">Credits</div>
-    <div class="navtab" data="news">What's New</div>
-    <div id="authors"><a href="http://www.stanford.edu/~scheidel/">Walter Scheidel</a> <a href="https://dhs.stanford.edu">Elijah Meeks</a></div></div>
+  <div id="topbar"><div id="title">ORBIS Modelo de Redes de la Hispania Romana </div>
+    <div class="navtab" data="home">Sobre</div>
+    <div class="navtab" data="understand">Tutorial</div>
+    <div id="authors"><a href="https://arkegeomatica.github.io/orbis_v2/">Varix</a> </div> </div>
   <div id="restoreButton" style="display: none;position: fixed; top:40px; right:10px;"><button style="cursor:pointer;" onclick="restoreControlsMap();">Controls</button></div>
 
   <div id="vizcontainer">
@@ -35,8 +28,8 @@
     </div>
     <div id="legendmodal" class="popup">
       <span id="infoclosebutton" onclick="d3.select('#legendmodal').style('display','none');d3.select('#legendDisplayButton').style('display','block');" >X</span>
-      <span id="legendTitle">Legend</span>
-            <button onclick="createVoronoi();">Regions</button><img data="voronoi" class="helpicon" src="helpq.png" />
+      <span id="legendTitle">Leyenda</span>
+            <button onclick="createVoronoi();">Regiones</button><img data="voronoi" class="helpicon" src="helpq.png" />
       <svg id="legendSVG"></svg>
     </div>
     <div id="routemodal" class="modal"></div>
@@ -49,10 +42,10 @@
       <span id="infoclosebutton" onclick="d3.select('#infopopup').style('display','none')" >X</span>
       <div id="infocontent">
     </div>
-      <button class="multiSiteControl" onclick="massSiteChange('all')">All Sites</button>
-      <button class="multiSiteControl" onclick="massSiteChange('intersect')">Limit to these Sites</button>
-      <button class="multiSiteControl" onclick="massSiteChange('on')">Add these sites</button>
-      <button class="multiSiteControl" onclick="massSiteChange('off')">Exclude these sites</button>
+      <button class="multiSiteControl" onclick="massSiteChange('all')">Todos los Yacimientos</button>
+      <button class="multiSiteControl" onclick="massSiteChange('intersect')">Limitado a estos Yacimientos</button>
+      <button class="multiSiteControl" onclick="massSiteChange('on')">Añade estos Yacimientos</button>
+      <button class="multiSiteControl" onclick="massSiteChange('off')">Excluye estos Yacimientos</button>
       </div>
     <div id="tutorialpopup" class="tutorial">
       <span id="infoclosebutton" onclick="d3.select('#tutorialpopup').style('display','none')" >X</span>
@@ -68,37 +61,38 @@
     <div class="buttonContainer">
     <div id="displayOptionsContainer" style="overflow:hidden;height:150px;" class="buttonContainer">
       <button onclick="showHide('displayOptions');" style="font-size:10px;font-weight:900;position:absolute;right:1px;">+</button>
-      <span class="fieldTitle">Display</span>
+      <span class="fieldTitle">Visualizar</span>
       <fieldset style="margin-top:-8px;">
         <div style="width:100%;">
-      <div class="eyeButton" id="terrainOnButton" onclick="mapOff();"><svg class="eye" height="10" width="15"></svg>Terrain</div></div>
+      <div class="eyeButton" id="terrainOnButton" onclick="mapOff();"><svg class="eye" height="10" width="15"></svg>Terreno</div></div>
         <div style="width:100%;">
-      <div class="eyeButton" id="labelsOnButton" onclick="temporaryLabels();"><svg class="eye" height="10" width="15"></svg>Names</div></div>
+      <div class="eyeButton" id="labelsOnButton" onclick="temporaryLabels();"><svg class="eye" height="10" width="15"></svg>Nombres</div></div>
         <div style="width:100%;">
-      <div class="eyeButton" id="sitesOnButton" onclick="sitesOff();"><svg class="eye" height="10" width="15"></svg>Sites</div></div>
+      <div class="eyeButton" id="sitesOnButton" onclick="sitesOff();"><svg class="eye" height="10" width="15"></svg>Yacimientos</div></div>
         <div style="width:100%;">
-      <div class="eyeButton" id="networkOnButton" onclick="networkOff(false);"><svg class="eye" height="10" width="15"></svg>Network</div></div>
+      <div class="eyeButton" id="networkOnButton" onclick="networkOff(false);"><svg class="eye" height="10" width="15"></svg>Redes</div></div>
         <div style="width:100%;" id="networkDisplayButton">
-      <div class="eyeButton" id="borderOnButton" onclick="provincesOnOff();"><svg class="eye" height="10" width="15"></svg>Provinces</div></div>
+      <div class="eyeButton" id="borderOnButton" onclick="provincesOnOff();"><svg class="eye" height="10" width="15"></svg>Provincias</div></div>
         <div style="width:100%;" id="borderDisplayButton">
-      <div class="eyeButton" onclick="d3.select('#legendmodal').style('display', 'block');"><svg class="eye" height="10" width="15"></svg>Legend</div>
+      <div class="eyeButton" onclick="d3.select('#legendmodal').style('display', 'block');"><svg class="eye" height="10" width="15"></svg>Leyenda</div>
         </div>
       </fieldset>
     </div>
-      <span class="fieldTitle">Map Controls</span>
+      <span class="fieldTitle">Controles de Mapa</span>
       <fieldset style="margin-top:-8px;">
-      <button onclick="fullscreenMap();">Full Screen</button>
+      <button onclick="fullscreenMap();">Pantalla Completa
+	  </button>
       </fieldset>
       <span class="fieldTitle">Site Controls</span>
       <fieldset style="margin-top:-8px;">
-      <button id="startBrushingButton" onclick="startBrushing();">Select Sites</button><img data="selectsites" class="helpicon" src="helpq.png" />
+      <button id="startBrushingButton" onclick="startBrushing();">Seleccionar Yacimientos</button><img data="selectsites" class="helpicon" src="helpq.png" />
       <button id="stopBrushingButton" style="display:none;" onclick="stopBrushing();">Stop Selecting</button>
       <button id="resetMapButton" onclick="resetMap();" onclick="">Reset Map</button>
       </fieldset>
-      <span class="fieldTitle">Map Functions</span>
+      <span class="fieldTitle">Funciones de Mapa</span>
       <fieldset style="margin-top:-8px;">
-      <button onclick="clusterSitesUI()">Cluster</button><img data="cluster" class="helpicon" src="helpq.png" />
-      <div style="display:none;width:100px;" id="cartoOffButton"><button class="controlButton" onclick="cartogramOff()">Georectify</button><img data="georectify" class="helpicon" src="helpq.png" /></div>
+      <button onclick="clusterSitesUI()">Agrupar  </button><img data="cluster" class="helpicon" src="helpq.png" />
+      <div style="display:none;width:100px;" id="cartoOffButton"><button class="controlButton" onclick="cartogramOff()">Georectificar</button><img data="georectify" class="helpicon" src="helpq.png" /></div>
       <div style="display:none;width:100px;" id="cartoOnButton"><button class="controlButton">Cost Cartogram</button><img data="cartogramon" class="helpicon" src="helpq.png" /></div>
       <button id="sankeyButton" style="display:none;" onclick="sankeyOff();">Flow Off</button>
       </fieldset>
@@ -106,7 +100,7 @@
       <span class="fieldTitle">Network Color</span>
       <fieldset style="margin-top:-8px;">
       <div style="width:100%;"><button id="eButton" class="routeLabelButton" onclick="colorBy('e')">Expense</button><img data="networkcolor" class="helpicon" src="helpq.png" /></div>
-      <button id="sButton" class="routeLabelButton" onclick="colorBy('s')">Speed</button> <button id="tButton" class="routeLabelButton active" onclick="colorByType()">Mode</button>
+      <button id="sButton" class="routeLabelButton" onclick="colorBy('s')">Velocidad</button> <button id="tButton" class="routeLabelButton active" onclick="colorByType()">Mode</button>
       </fieldset>
       </div>
       <button style="display:none;" onclick="testCommunities(exposedsites,exposedroutes,d3.selectAll('g.site'))">Network Communities</button>
@@ -117,12 +111,12 @@
             <div id="stickynote" class="tutorial" style="z-index:5;opacity:0;pointer-events:none;min-height:1px;height:28px; width: 200px;left:-250px;top:-5px;">
       <div id="stickyarrow" style="width:20px;height:20px;transform: rotate(45deg);-ms-transform: rotate(45deg);-webkit-transform: rotate(45deg);background:white;  border-right: solid 2px lightgray;border-top: solid 2px lightgray;position:absolute;right:-12px;top:3px;"></div>
       <div id="stickycontent" >
-        <div style="padding:3 0 0;">Click here for a tutorial</div>
+        <div style="padding:3 0 0;">Pinche aqui para ayuda</div>
       </div>
     </div>
       </div>
-      <button onclick="exportSVG();">Export SVG</button><img data="exportsvg" class="helpicon" src="helpq.png" />
-      <a id="svgDownload">Download SVG</a>
+      <button onclick="exportSVG();">Exportar SVG</button><img data="exportsvg" class="helpicon" src="helpq.png" />
+      <a id="svgDownload">Descargar SVG</a>
       <button onclick="psStyle();"><img width="50px;" src="ps.png" /></button>
       
       </fieldset>
@@ -130,9 +124,9 @@
     </div>
 
   <div class="controlsDiv" id="controlbar" style="top: 68px; left: 0px; height:auto; width: 290px; padding:0px 10px 20px;">
-    <a class="tab" id="routTab" onmouseover="contextualHelp('route')" onmouseout="d3.select('#infopopup').style('display','none')" onclick="switchControls('route');" style="left:0px;width:100px;">Route</a>
-    <a class="tab backtab" id="cartTab" onmouseover="contextualHelp('cartogram')" onmouseout="d3.select('#infopopup').style('display','none')" onclick="switchControls('cartogram');" style="left:100px;width:100px;border-right: solid gray 1px;border-left: solid gray 1px;">Network</a>
-    <a class="tab backtab" id="minTab" onmouseover="contextualHelp('minard')" onmouseout="d3.select('#infopopup').style('display','none')" onclick="switchControls('Minard');" style="left:212px;width:88px;">Flow</a>
+    <a class="tab" id="routTab" onmouseover="contextualHelp('route')" onmouseout="d3.select('#infopopup').style('display','none')" onclick="switchControls('route');" style="left:0px;width:100px;">Ruta</a>
+    <a class="tab backtab" id="cartTab" onmouseover="contextualHelp('cartogram')" onmouseout="d3.select('#infopopup').style('display','none')" onclick="switchControls('cartogram');" style="left:100px;width:100px;border-right: solid gray 1px;border-left: solid gray 1px;">Red</a>
+    <a class="tab backtab" id="minTab" onmouseover="contextualHelp('minard')" onmouseout="d3.select('#infopopup').style('display','none')" onclick="switchControls('Minard');" style="left:212px;width:88px;">Flujo</a>
     <div class="buttonContainer" style="height:80px;">
       <div id="sourceSelectParent" style="width:100%;margin-bottom:20px;">
         <span style="width:25px;" id="sourceSelectLabel">From</span>:
@@ -192,14 +186,14 @@
     </div>
 
     <div class="buttonContainer">
-            <span class="fieldTitle">Priority</span>
+            <span class="fieldTitle">Prioridad</span>
       <fieldset style="margin-top:-8px;" id="priorityForm">
         <input onclick="changePriority('f')" type="radio" value="0" name="priority" id="fp" checked>
         <label for="fp" class="priority-picker-label">Fastest</label>
         <input onclick="changePriority('c')" type="radio" value="1" name="priority" id="cp">
         <label for="cp" class="priority-picker-label">Cheapest</label>
         <input  onclick="changePriority('f')" type="radio" value="2" name="priority" id="sp">
-        <label for="sp" class="priority-picker-label">Shortest</label>
+        <label for="sp" class="priority-picker-label">Camino más corto</label>
       </fieldset>
     </div>
 
@@ -209,7 +203,7 @@
       <fieldset style="margin-top:-8px;padding-bottom: 0;">
       <form id="modeForm" onclick="updateBGRoutes();">
         <div class="checkboxDiv">
-        <input type="checkbox" value="road" name="mode" checked>Road</input>
+        <input type="checkbox" value="road" name="mode" checked>Carretera</input>
         </div>
         <div class="checkboxDiv">
         <input id="coastModeCheck" type="checkbox" value="coastal" name="mode" checked>Coastal Sea</input>
@@ -265,7 +259,7 @@
     </div>
 
     <div style="background:lightred" class="buttonContainer">
-      <div class="calculateDisable"><div id="calculateDisableText">Calculating...</div></div>
+      <div class="calculateDisable"><div id="calculateDisableText">Calculando...</div></div>
       <button class="controlButton calculateButton" style="background: #4d8ffd;color:white;" id="routeCalculateButton" onclick="calculateRoute()">Calculate Route</button>
       <button class="controlButton calculateButton" id="cartoCalculateButton" style="background: #4d8ffd;color:white;display:none;" onclick="calculateCarto()">Calculate Network</button>
       <button class="controlButton calculateButton" id="sankeyCalculateButton" style="background: #4d8ffd;color:white;display:none;" onclick="calculateSankey()">Calculate Flow</button>
@@ -273,10 +267,10 @@
   </div>
       <div id="resultsTable" style="display:none;background:white;border:1px black solid;position:absolute;left:0px;top:10%;height:80%;width:540px;overflow: hidden;z-index: 99;">
       <div>
-        <button onclick="d3.selectAll('.resultsRow').style('display', 'none');d3.selectAll('.networkRow').style('display','block');d3.selectAll('tr.networkRow').style('display','table-row');">Route</button>
+        <button onclick="d3.selectAll('.resultsRow').style('display', 'none');d3.selectAll('.networkRow').style('display','block');d3.selectAll('tr.networkRow').style('display','table-row');">Ruta</button>
         <button onclick="d3.selectAll('.resultsRow').style('display', 'none');d3.selectAll('.routeRow').style('display','block');d3.selectAll('tr.routeRow').style('display','table-row');">Network</button>
         <button onclick="d3.selectAll('.resultsRow').style('display', 'none');d3.selectAll('.flowRow').style('display','block');d3.selectAll('tr.flowRow').style('display','table-row');">Flow</button>
-        <button onclick="d3.selectAll('.resultsRow').style('display', 'block');d3.selectAll('tr.resultsRow').style('display','table-row');">All</button>
+        <button onclick="d3.selectAll('.resultsRow').style('display', 'block');d3.selectAll('tr.resultsRow').style('display','table-row');">Todos</button>
         <button onclick="d3.selectAll('.resultsContainer').style('display', 'none');d3.selectAll('#recentGrid').style('display', 'block');">Grid View</button>
         <button onclick="d3.selectAll('.resultsContainer').style('display', 'none');d3.selectAll('#recentList').style('display', 'block');">List View</button>
         <button onclick="d3.selectAll('.resultsContainer').style('display', 'none');d3.selectAll('#recentTable').style('display', 'block');">Table View</button>
@@ -297,8 +291,8 @@
               <th>Start</th>
               <th>End</th>
               <th>Priority</th>
-              <th>Month</th>
-              <th>Vehicle</th>
+              <th>Mes</th>
+              <th>Vehiculo</th>
               <th>Thumb</th>
             </tr>
             <tbody id="recTableActual">
@@ -329,13 +323,13 @@
 <svg id="timelineSVG" width="100%" height="100%" style="position:relative;left:460px">
   <g id="tlXAxis" class="tlAxis routeComps" transform="translate(0,100)"></g>
   <g id="tlYAxis" class="tlAxis routeComps" transform="translate(60,0)"></g>
-  <text id="tlYLabel" class="routeComps" transform="rotate(-90)" x="-80" y="50">Longitude</text>
-  <text id="tlXLabel" class="routeComps" x="70" y="115">Latitude</text>
+  <text id="tlYLabel" class="routeComps" transform="rotate(-90)" x="-80" y="50">Longitud</text>
+  <text id="tlXLabel" class="routeComps" x="70" y="115">Latitud</text>
 </svg>
 
   </div>
   <div class="footer">
-Published by <a href="http://library.stanford.edu">Stanford University Libraries</a> | <span style="font-size:9px;">Tiles &#169; <a href="http://awmc.unc.edu/wordpress/tiles/map-tile-information">AWMC</a>, CC BY-NC 3.0</span>
+Publicado por <a href="https://arkegeomatica.github.io/orbis_v2/">Arquegeomática</a> | <span style="font-size:9px;">Tiles &#169; <a href="http://awmc.unc.edu/wordpress/tiles/map-tile-information">AWMC</a>, CC BY-NC 3.0</span>
 </div>
   <footer>
     <script src="o_settings.js" type="text/javascript">
